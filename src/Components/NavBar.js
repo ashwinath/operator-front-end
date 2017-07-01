@@ -1,22 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentTopic: "Weather"
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    e.preventDefault();
-    console.log(e.target.id)
-    // TODO: add router and link to the weather page
-  }
-
   render() {
     const topics = [
       "Weather",
@@ -28,15 +13,16 @@ class NavBar extends Component {
         <div className="brand">
           Operator
         </div>
-          {topics.map(topic => {
+        {topics.map(topic => {
           return (
-          <a className="topic"
-            id={topic}
-            onClick={this.handleClick}>
-            {topic}
-          </a>
-          )})}
-        </div>
+            <Link className="topic"
+              to={`/${topic}`}
+              onClick={this.handleClick}>
+              {topic}
+            </Link>
+          );
+        })}
+      </div>
     );
   }
 }
