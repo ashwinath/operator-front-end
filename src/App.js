@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './public/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 import './App.css';
 import NavBar from './Components/NavBar';
 import Weather from './Components/Weather';

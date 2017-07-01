@@ -15,11 +15,10 @@ class NavBar extends Component {
         </div>
         {topics.map(topic => {
           return (
-          <a className="topic"
-            id={topic}
-            onClick={this.handleClick}>
+          <Link className="topic"
+            to={`/${topic}`}>
             {topic}
-          </a>
+          </Link>
         )})}
       </div>
     );
