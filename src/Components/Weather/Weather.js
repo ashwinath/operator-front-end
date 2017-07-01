@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import WeatherToday from './WeatherToday';
 import WeatherOtherDays from './WeatherOtherDays';
-import downloadWeather from './WeatherDownloader';
+import WeatherUtils from './WeatherUtils';
 
 class Weather extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Weather extends Component {
   }
 
   componentDidMount() {
-    downloadWeather()
+    WeatherUtils.downloadWeather()
       .then(data => {
         this.setState(() => {
           return {

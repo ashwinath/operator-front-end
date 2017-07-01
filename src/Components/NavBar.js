@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class NavBar extends Component {
   render() {
@@ -10,15 +10,16 @@ class NavBar extends Component {
 
     return (
       <div className="text-center">
-        <div className="brand">
+        <h1 className="brand">
           Operator
-        </div>
+        </h1>
         {topics.map(topic => {
           return (
-          <Link className="topic"
+          <NavLink className="topic"
+            activeClassName="selected"
             to={`/${topic}`}>
             {topic}
-          </Link>
+          </NavLink>
         )})}
       </div>
     );

@@ -1,15 +1,22 @@
-.topic {
-  display: inline;
-  padding: 0 5px;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Fresca|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Fresca|Raleway:400,700');
 
 body {
   font-family: 'Raleway', sans-serif;
 }
 
 .brand {
-  font-size: 2em;
   font-family: 'Fresca', sans-serif;
+}
+
+.topic {
+  display: inline;
+  padding: 0 10px;
+  font-size: 2em;
+  color: red;
+}
+
+.selected {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #337ab7;
 }
