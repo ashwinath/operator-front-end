@@ -29,12 +29,12 @@ class NavBar extends Component {
           Operator
         </div>
           {topics.map(topic => {
-          return (
-          <a className="topic"
-            id={topic}
-            onClick={this.handleClick}>
-            {topic}
-          </a>
+            return (
+            <a className="topic"
+              id={topic}
+              onClick={this.handleClick}>
+              {topic}
+            </a>
           )})}
         </div>
     );
