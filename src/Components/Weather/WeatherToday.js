@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import WeatherUtils from './WeatherUtils';
 
 class WeatherToday extends Component {
   render() {
