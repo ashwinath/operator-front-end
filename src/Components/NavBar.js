@@ -13,28 +13,15 @@ class NavBar extends Component {
         <div className="brand">
           Operator
         </div>
-<<<<<<< HEAD
         {topics.map(topic => {
           return (
-            <Link className="topic"
-              to={`/${topic}`}
-              onClick={this.handleClick}>
-              {topic}
-            </Link>
-          );
-        })}
+          <a className="topic"
+            id={topic}
+            onClick={this.handleClick}>
+            {topic}
+          </a>
+        )})}
       </div>
-=======
-          {topics.map(topic => {
-            return (
-            <a className="topic"
-              id={topic}
-              onClick={this.handleClick}>
-              {topic}
-            </a>
-          )})}
-        </div>
->>>>>>> 0270eddb51c36e1e2a1e0ac3c0f62369b3ddf58c
     );
   }
 }
