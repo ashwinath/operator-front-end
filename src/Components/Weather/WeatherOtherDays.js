@@ -4,7 +4,6 @@ import WeatherUtils from './WeatherUtils'
 class WeatherOtherDays extends Component {
   render() {
     const weatherInfo = this.props.data;
-    console.log(weatherInfo)
     return (
       <div className="col-md-6 col-sm-12">
         {weatherInfo.map(dailyInfo => {

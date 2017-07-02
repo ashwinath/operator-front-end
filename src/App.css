@@ -6,6 +6,7 @@ body {
 
 .brand {
   font-family: 'Fresca', sans-serif;
+  font-size: 3em;
 }
 
 .topic {
@@ -57,4 +58,33 @@ body {
 
 #weather-other-date, #weather-other-max {
   font-weight: bold;
+}
+
+.row {
+ -moz-column-width: 25em;
+ -webkit-column-width: 25em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap:1em; 
+  
+}
+
+.row > .col-md-4 {
+ display: inline-block;
+ padding:  .33rem;
+ width:  100%; 
+ float:none;
+}
+
+.well {
+ position:relative;
+ display: block;
+}
+
+#news {
+  padding-top: 20px;
+}
+
+#news-title {
+  font-weight: bold;
+  font-size: 1.25em;
 }

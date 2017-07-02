@@ -10,9 +10,9 @@ class NavBar extends Component {
 
     return (
       <div className="text-center">
-        <h1 className="brand">
+        <p className="brand">
           Operator
-        </h1>
+        </p>
         {topics.map(topic => {
           return (
           <NavLink className="topic"

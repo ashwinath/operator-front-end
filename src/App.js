@@ -5,7 +5,7 @@ import './public/weather-icons-2.0.10/css/weather-icons-wind.min.css';
 import './App.css';
 import NavBar from './Components/NavBar';
 import Weather from './Components/Weather/Weather';
-import News from './Components/News';
+import News from './Components/News/News';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
