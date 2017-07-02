@@ -7,7 +7,7 @@ const AVAIL_DIRECTION_LIST = _.range(NUM_AVAIL_DIRECTIONS)
       .map(x => x * STEP + 11.25);
 const WIND_CSS_LIST = _.range(NUM_AVAIL_DIRECTIONS)
   .map(x => Math.round(x * STEP))
-  .map(x => `wi wi-wind towards-${x}-deg`)
+  .map(x => `wi wi-wind towards-${x}-deg`);
     
 const WeatherUtils = {
   /**
@@ -20,18 +20,75 @@ const WeatherUtils = {
   /**
    * Given a weather id, return the correct css
    */
-  mapWeatherIdToIconCss(weatherId) {
+  mapWeatherIdToIconCss(weatherIdString) {
+    const weatherId = parseInt(weatherIdString, 10);
+    let weatherType;
+    const hourNow = new Date().getHours();
+    const dayOrNight = 7 >= hourNow && hourNow < 19
+      ? 'day'
+      : 'night'
+    if (200 <= weatherId && weatherId < 300) {
+      weatherType = 'thunderstorm';
+    } else if ((300 <= weatherId && weatherId < 400)
+      || (500 <= weatherId && weatherId < 600)) {
+      weatherType = 'rain';
+    } else if (600 <= weatherId && weatherId < 700) {
+      weatherType = 'snow';
+    } else if (weatherId === 701 || weatherId === 741) {
+      return 'wi wi-fog';
+    } else if (weatherId === 711) {
+      return 'wi wi-smoke';
+    } else if (weatherId === 721 || weatherId === 731
+      || weatherId === 751 || weatherId === 761) {
+      return 'wi wi-dust';
+    } else if (weatherId === 762) {
+      return 'wi wi-volcano';
+    } else if (weatherId === 771) {
+      weatherType = 'rain-wind';
+    } else if (weatherId === 781 || weatherId === 900
+      | weatherId === 901) {
+      return 'wi wi-tornado';
+    } else if (weatherId === 800) {
+      return dayOrNight === 'day'
+        ? 'wi wi-day-sunny'
+        : 'wi wi-night-clear';
+    } else if (weatherId === 902 || weatherId === 962) {
+      return 'wi wi-hurricane';
+    } else if (weatherId === 905
+      || (951 <= weatherId && weatherId <= 956)) {
+      return 'wi wi-windy'
+    } else if (weatherId === 906) {
+      weatherType = 'hail';
+    } else if (957 <= weatherId  && weatherId <= 959) {
+      return 'wi wi-gale-warning';
+    } else if (960 <= weatherId  && weatherId <= 961) {
+      weatherType = 'storm-showers';
+    } else {
+      return 'wi wi-na';
+    }
 
+    return `wi wi-${dayOrNight}-${weatherType}`;
   },
   /**
    * Given a bearing, 
    * return the css that gives the correct wind direction
    */
   mapBearingToIconCss(bearingString) {
-    const bearing = parseInt(bearingString);
+    const bearing = parseInt(bearingString, 10);
     const index = AVAIL_DIRECTION_LIST
       .findIndex(x => x > bearing);
     return WIND_CSS_LIST[index];
+  },
+  /**
+   * Get the month name given the number
+   */
+  mapMonthToMonthName(number) {
+    var monthNames = [
+      "January", "February", "March", "April", "May",
+      "June", "July", "August", "September", "October",
+      "November", "December"
+    ];
+    return monthNames[number];
   }
 }
 
