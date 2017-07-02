@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import WeatherToday from './WeatherToday';
 import WeatherOtherDays from './WeatherOtherDays';
 import WeatherUtils from './WeatherUtils';
+import Loader from 'halogen/RingLoader';
 
 class Weather extends Component {
   constructor(props) {
@@ -39,9 +40,7 @@ class Weather extends Component {
   render() {
     if (this.state.loading) {
       return (
-        <div className="weather text-center">
-          <h1>Loading</h1>
-        </div>
+        <Loader className="spinner" color="#337ab7" size="200px" margin="4px"/>
       );
     } else if (this.state.error) {
       return (

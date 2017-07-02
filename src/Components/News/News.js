@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NewsUtils from './NewsUtils';
+import Loader from 'halogen/RingLoader';
 
 class News extends Component {
   constructor(props) {
@@ -31,14 +32,13 @@ class News extends Component {
             data: undefined
           }
         });
-
-      })
+      });
   }
 
   render() {
     if (this.state.loading) {
       return (
-        <h1>Loading</h1>
+        <Loader className="spinner" color="#337ab7" size="200px" margin="4px"/>
       );
     } else if (this.state.error) {
       return (
@@ -50,24 +50,29 @@ class News extends Component {
         <div id="news" className="container">
           <div className="row">
             {news.map(article => {
-              return (
-                  <div className="col-md-4">
-                    <div className="well" >
-                      <p id="news-title">{article.title}</p>
-                      <a href={article.url} className="thumbnail">
-                        <img src={article.urlToImage} alt="Picture Missing"/>
-                      </a>
-                      <p>{article.description}</p>
-                      <i>{article.author !== 'null' ? article.author : ""} - {NewsUtils.formatDate(article.publishedAt)}</i>
-                    </div>
-                </div>
-              )
+              return <Article article={article}/>
             })}
           </div>
         </div>
       );
     }
   }
+}
+
+function Article(props) {
+  const article = props.article;
+  return (
+    <div className="col-md-4">
+      <div className="well">
+        <p id="news-title">{article.title}</p>
+        <a href={article.url} className="thumbnail">
+          <img src={article.urlToImage} alt="Missing"/>
+        </a>
+        <p>{article.description}</p>
+        <i>{article.author !== 'null' ? article.author : ""} - {NewsUtils.formatDate(article.publishedAt)}</i>
+      </div>
+    </div>
+  )
 }
 
 export default News;
