@@ -116,6 +116,7 @@ const WeatherUtils = {
         case 4: return 'Thu';
         case 5: return 'Fri';
         case 6: return 'Sat';
+        default: return 'NA';
     }
   }
 
