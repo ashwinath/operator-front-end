@@ -101,7 +101,7 @@ const WeatherUtils = {
    */
   formatDate(dateString) {
     const date = new Date(dateString);
-    return `${date.getDate()} ${WeatherUtils.mapMonthToMonthName(date.getMonth())} ${date.getFullYear()}`;
+    return `${date.getDate()} ${WeatherUtils.mapMonthToMonthName(date.getMonth())}`;
   },
   /**
    * Maps numerical day to 3 character name of the day.

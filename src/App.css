@@ -35,16 +35,16 @@ body {
 }
 
 #weather-today-icon {
-  font-size: 10em;
+  font-size: 8em;
 }
 
 #weather-today-max {
   font-weight: bold;
-  font-size: 5em;
+  font-size: 4em;
 }
 
 #weather-today-min {
-  font-size: 4em;
+  font-size: 3em;
 }
 
 #today-weather-misc {
