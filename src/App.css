@@ -15,17 +15,23 @@ body {
   color: red;
 }
 
+#weather-today-main, #today-weather-misc {
+  padding: 20px 20px 0 20px;
+}
+
 .selected {
   font-weight: 700;
   text-decoration: underline;
   color: #337ab7;
 }
+
 #weather-today-date {
+  font-weight: bold;
   font-size: 3em;
 }
 
 #weather-today-icon {
-  font-size: 12em;
+  font-size: 10em;
 }
 
 #weather-today-max {

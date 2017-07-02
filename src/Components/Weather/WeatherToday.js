@@ -11,12 +11,14 @@ class WeatherToday extends Component {
       <div className="col-md-6 col-sm-12">
         <p id="weather-today-date">{`Today, ${todayDateFormatted}`}</p>
 
-        <div className="col-sm-6">
-          <i id="weather-today-icon" className={WeatherUtils.mapWeatherIdToIconCss(weatherInfo.WEATHER_ID)} />
-        </div>
-        <div className="col-sm-6">
-          <p id="weather-today-max">{weatherInfo.MAX}°C</p>
-          <p id="weather-today-min">{weatherInfo.MIN}°C</p>
+        <div id="weather-today-main" className="col-sm-12">
+          <div id="weather-today-icon" className="col-sm-6">
+            <i className={WeatherUtils.mapWeatherIdToIconCss(weatherInfo.WEATHER_ID)} />
+          </div>
+          <div className="col-sm-6">
+            <p id="weather-today-max">{weatherInfo.MAX}°C</p>
+            <p id="weather-today-min">{weatherInfo.MIN}°C</p>
+          </div>
         </div>
 
         <div id="today-weather-misc" className="col-sm-12">

@@ -22,11 +22,11 @@ const WeatherUtils = {
    */
   mapWeatherIdToIconCss(weatherIdString) {
     const weatherId = parseInt(weatherIdString, 10);
-    let weatherType;
     const hourNow = new Date().getHours();
-    const dayOrNight = 7 >= hourNow && hourNow < 19
+    const dayOrNight = (7 <= hourNow && hourNow <= 19)
       ? 'day'
-      : 'night'
+      : 'night';
+    let weatherType;
     if (200 <= weatherId && weatherId < 300) {
       weatherType = 'thunderstorm';
     } else if ((300 <= weatherId && weatherId < 400)
