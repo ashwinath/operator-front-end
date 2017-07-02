@@ -6,7 +6,6 @@ class WeatherToday extends Component {
     const weatherInfo = this.props.data;
     const todayDate = new Date(weatherInfo.DATE);
     const todayDateFormatted = `${todayDate.getDate()} ${WeatherUtils.mapMonthToMonthName(todayDate.getMonth())} ${todayDate.getFullYear()}`;
-    console.log(weatherInfo);
     return (
       <div className="col-md-6 col-sm-12">
         <p id="weather-today-date">{`Today, ${todayDateFormatted}`}</p>
