@@ -4,11 +4,9 @@ import WeatherUtils from './WeatherUtils';
 class WeatherToday extends Component {
   render() {
     const weatherInfo = this.props.data;
-    const todayDate = new Date(weatherInfo.DATE);
-    const todayDateFormatted = `${todayDate.getDate()} ${WeatherUtils.mapMonthToMonthName(todayDate.getMonth())} ${todayDate.getFullYear()}`;
     return (
-      <div className="col-md-6 col-sm-12">
-        <p id="weather-today-date">{`Today, ${todayDateFormatted}`}</p>
+      <div className="text-center col-md-6 col-sm-12">
+        <p id="weather-today-date">{`Today, ${WeatherUtils.formatDate(weatherInfo.DATE)}`}</p>
 
         <div id="weather-today-main" className="col-sm-12">
           <div id="weather-today-icon" className="col-sm-6">

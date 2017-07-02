@@ -19,6 +19,10 @@ body {
   padding: 20px 20px 0 20px;
 }
 
+#weather-other-info {
+  margin-top: 20px;
+}
+
 .selected {
   font-weight: 700;
   text-decoration: underline;
@@ -44,4 +48,12 @@ body {
 
 #today-weather-misc {
   font-size: 2.5em;
+}
+
+#weather-other-info {
+  font-size: 2em;
+}
+
+#weather-other-date {
+  font-weight: bold;
 }

@@ -25,7 +25,7 @@ class Weather extends Component {
         })
       })
       .catch(err => {
-        console.err(err);
+        console.error(err);
         this.setState(() => {
           return {
             error: true,
@@ -51,9 +51,9 @@ class Weather extends Component {
       );
     } else {
       const todayData = this.state.data[0];
-      const remainingData = this.state.data.splice(1);
+      const remainingData = this.state.data.splice(1, 7);
       return (
-        <div className="weather text-center">
+        <div className="weather">
           <WeatherToday data={todayData}/>
           <WeatherOtherDays data={remainingData}/>
         </div>

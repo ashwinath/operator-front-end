@@ -52,6 +52,12 @@ const WeatherUtils = {
       return dayOrNight === 'day'
         ? 'wi wi-day-sunny'
         : 'wi wi-night-clear';
+    } else if (weatherId === 801) {
+      weatherType = 'cloudy';
+    } else if (weatherId === 802) {
+      return 'wi wi-cloud';
+    } else if (weatherId === 803 || weatherId === 804) {
+      weatherType = 'rain';
     } else if (weatherId === 902 || weatherId === 962) {
       return 'wi wi-hurricane';
     } else if (weatherId === 905
@@ -89,7 +95,30 @@ const WeatherUtils = {
       "November", "December"
     ];
     return monthNames[number];
+  },
+  /**
+   * Formats date into human friendly format.
+   */
+  formatDate(dateString) {
+    const date = new Date(dateString);
+    return `${date.getDate()} ${WeatherUtils.mapMonthToMonthName(date.getMonth())} ${date.getFullYear()}`;
+  },
+  /**
+   * Maps numerical day to 3 character name of the day.
+   */
+  formatDay(dateString) {
+    const dayNumber = new Date(dateString).getDay();
+    switch (dayNumber) {
+        case 0: return 'Sun';
+        case 1: return 'Mon';
+        case 2: return 'Tue';
+        case 3: return 'Wed';
+        case 4: return 'Thu';
+        case 5: return 'Fri';
+        case 6: return 'Sat';
+    }
   }
+
 }
 
 export default WeatherUtils;
