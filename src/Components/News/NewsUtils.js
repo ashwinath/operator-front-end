@@ -5,8 +5,8 @@ const NewsUtils = {
    * Downloads the news from selected sources
    * returns a promise
    */
-  downloadNews() {
-    return axios.get(encodeURI('http://localhost:8080/news'));
+  downloadNews(source) {
+    return axios.get(encodeURI(`http://localhost:8080/news/${source}`));
   },
   /**
    * Formats a date into dd/MM/yy, hh:mm

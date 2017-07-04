@@ -1,78 +1,25 @@
 import React, { Component } from 'react';
 import NewsUtils from './NewsUtils';
 import Loader from 'halogen/RingLoader';
+import NewsSection from './NewsSection';
 
 class News extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-      error: false,
-      data: undefined
-    }
-  }
-
-  componentDidMount() {
-    NewsUtils.downloadNews()
-      .then(data => {
-        this.setState(() => {
-          return {
-            loading: false,
-            error: false,
-            data: data.data
-          }
-        });
-      })
-      .catch(err => {
-        console.error(err);
-        this.setState(() => {
-          return {
-            loading: false,
-            error: true,
-            data: undefined
-          }
-        });
-      });
-  }
-
   render() {
-    if (this.state.loading) {
-      return (
-        <Loader className="spinner" color="#337ab7" size="200px" margin="4px"/>
-      );
-    } else if (this.state.error) {
-      return (
-        <h1>Error</h1>
-      );
-    } else {
-      const news = this.state.data;
-      return (
-        <div id="news" className="container">
-          <div className="row">
-            {news.map(article => {
-              return <Article article={article}/>
-            })}
-          </div>
+    // TODO: add side panel and remove bbc-news hard coding
+    // TODO: add functionality to add to list
+    // TODO: post functionality should trigger a news download on server
+    return (
+      <div id="news">
+        <div className='col-md-3'>
+          Side panel
         </div>
-      );
-    }
-  }
-}
-
-function Article(props) {
-  const article = props.article;
-  return (
-    <div className="col-md-4">
-      <div className="well">
-        <p id="news-title">{article.title}</p>
-        <a href={article.url} className="thumbnail">
-          <img src={article.urlToImage} alt="Missing"/>
-        </a>
-        <p>{article.description}</p>
-        <i>{article.author !== 'null' ? article.author : ""} - {NewsUtils.formatDate(article.publishedAt)}</i>
+        <div className='col-md-9'>
+          <NewsSection source="bbc-news"/>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
+
 }
 
 export default News;
