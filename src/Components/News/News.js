@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import NewsUtils from './NewsUtils';
-import Loader from 'halogen/RingLoader';
 import NewsSection from './NewsSection';
 import NewsSources from './NewsSources';
 
