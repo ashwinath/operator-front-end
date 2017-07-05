@@ -19,6 +19,12 @@ const NewsUtils = {
     } else {
       return "";
     }
+  },
+  /**
+   * Downloads the available news souces
+   */
+  downloadNewsSources() {
+    return axios.get(encodeURI('http://localhost:8080/news/sources'));
   }
 }
 

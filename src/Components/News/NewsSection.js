@@ -13,7 +13,10 @@ class NewsSection extends Component {
   }
 
   componentDidMount() {
-    NewsUtils.downloadNews(this.props.source)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    NewsUtils.downloadNews(nextProps.source)
       .then(data => {
         this.setState(() => {
           return {
@@ -36,7 +39,11 @@ class NewsSection extends Component {
   }
 
   render() {
-    if (this.state.loading) {
+    if (!this.props.source) {
+      return (
+        <h1>Select a news source</h1>
+      )
+    } else if (this.state.loading) {
       return (
         <Loader className="spinner" color="#337ab7" size="200px" margin="4px"/>
       );
