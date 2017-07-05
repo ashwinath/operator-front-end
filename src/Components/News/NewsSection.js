@@ -12,9 +12,6 @@ class NewsSection extends Component {
     }
   }
 
-  componentDidMount() {
-  }
-
   componentWillReceiveProps(nextProps) {
     NewsUtils.downloadNews(nextProps.source)
       .then(data => {
